@@ -1,6 +1,6 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
-import './Main.css'
+import './main.css'
 
 
 class Main extends React.Component {
