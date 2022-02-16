@@ -1,24 +1,28 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
+import './Main.css'
+
 
 class Main extends React.Component {
   render() {
-    return (
-      <main>
-        <HornedBeast title='somtheing'
-        imageUrl="#"
-        description='something'
+    
+    let animals = [];
+    this.props.data.forEach((animal,index) =>{
+      animals.push(
+        <HornedBeast
+        key={index}
+        title={animal.title}
+        imageUrl={animal.image_url}
+        description={animal.description}
         />
-        <HornedBeast title='somtheing'
-        imageUrl="#"
-        description='something'
-        />
-        <HornedBeast title='somtheing'
-        imageUrl="#"
-        description='something'
-        />
+      )
+    });
+      
+  return(
 
-      </main>
+      <main>
+        {animals}
+      </main >
     );
   }
 }
