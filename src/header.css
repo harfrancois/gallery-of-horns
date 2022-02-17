@@ -3,7 +3,6 @@
 h1 {
   text-align: center;
   font-size: 4rem;
-  border: 1rem solid rebeccapurple;
-  margin-left: 25rem;
-  margin-right: 25rem;
+  border: 1vw solid rebeccapurple;
+  margin: auto;
 }

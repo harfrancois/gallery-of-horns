@@ -4,8 +4,7 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import data from './data.json';
-import { Modal } from 'react-bootstrap';
-
+import SelectedBeast from './SelectedBeast';
 
 
 class App extends React.Component {
@@ -13,46 +12,33 @@ class App extends React.Component {
     super(props)
     this.state = {
       showModal: false,
-      name: '',
-      image: '',
-      about: 'about'
+      beast:{}
     }
   }
   
-  handelCloseModal = () => {
+  handleCloseModal = () => {
     this.setState({
-      showModel: false,      
+      showModal: false,      
     })
   }
-  handelShowModal = (beast) => {
+  handleShowModal = (beast) => {
     this.setState({
       showModal: true,
-      name: beast
-    })
-  }
-  getImages = (img) => {
-    this.setState({
-      image: img
+      beast
     })
   }
   render() {
     return (
     <>
-      <Header />
-      <Modal show={this.state.showModal} onHide={this.state.handelCloseModal}>
-        <Modal.Header closeButton>
-        <Modal.Title>{this.state.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <img alt={this.state.name}></img>
-        </Modal.Body> 
-      </Modal>
+      <SelectedBeast
+      handleShowModal={this.state.showModal}
+      handleCloseModal={this.handleCloseModal}
+      beast={this.state.beast}
+      />
+      <Header/>      
       <Main 
         data={data}
-        handelShowModal={this.handelShowModal}
-        getImage={this.getImage}
-
-
+        handleShowModal={this.handleShowModal}
       />
       <Footer/>
     </>
