@@ -1,28 +1,37 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
 import './main.css'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 class Main extends React.Component {
   render() {
-    
+
     let animals = [];
-    this.props.data.forEach((animal,index) =>{
+    this.props.data.forEach((animal, index) => {
       animals.push(
-        <HornedBeast
-        key={index}
-        title={animal.title}
-        imageUrl={animal.image_url}
-        description={animal.description}
-        handelShowModal={this.props.handelShowModal}
-        getImage={this.props.getImage}
-        />
+        <Col key={index}>
+        
+          <HornedBeast
+            
+            title={animal.title}
+            imageUrl={animal.image_url}
+            description={animal.description}
+            beast={animal}
+            handleShowModal={this.props.handleShowModal}
+          />
+        </Col>
+
       )
     });
-      
-  return(
+
+    return (
       <main>
-        {animals}
+        <Row sm={1} md={2} lg={3}>
+          {animals}
+        </Row>
+
       </main >
     );
   }
