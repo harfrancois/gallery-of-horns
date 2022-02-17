@@ -14,12 +14,13 @@ class Main extends React.Component {
         title={animal.title}
         imageUrl={animal.image_url}
         description={animal.description}
+        handelShowModal={this.props.handelShowModal}
+        getImage={this.props.getImage}
         />
       )
     });
       
   return(
-
       <main>
         {animals}
       </main >
