@@ -8,9 +8,9 @@ import Col from 'react-bootstrap/Col';
 class Main extends React.Component {
   render() {
 
-    // let hornedBeasts = [];
+
     let hornedBeasts = this.props.data.map((beast, index) => (
-      // hornedBeasts.push(
+      
         <Col key={index}>
         
           <HornedBeast
@@ -19,11 +19,12 @@ class Main extends React.Component {
             imageUrl={beast.image_url}
             description={beast.description}
             beast={beast}
+            horns={beast.horns}
             handleShowModal={this.props.handleShowModal}
           />
         </Col>
 
-      // )
+      
     ));
 
     return (

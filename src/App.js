@@ -5,6 +5,7 @@ import Main from './Main';
 import Footer from './Footer';
 import data from './data.json';
 import SelectedBeast from './SelectedBeast';
+import Form from './Forms';
 
 
 class App extends React.Component {
@@ -12,7 +13,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       showModal: false,
-      beast:{}
+      beast:{},
+      value:{}  
     }
   }
   
@@ -27,7 +29,16 @@ class App extends React.Component {
       beast
     })
   }
+  handelSelect = (event) => {
+    console.log(event.target.value);
+    let select = event.target.value;
+      
+      
+  
+  }
+
   render() {
+
     return (
     <>
       <SelectedBeast
@@ -35,7 +46,10 @@ class App extends React.Component {
       handleCloseModal={this.handleCloseModal}
       beast={this.state.beast}
       />
-      <Header/>      
+      <Header/>
+      <Form
+        handelSelect={this.handelSelect}
+      />
       <Main 
         data={data}
         handleShowModal={this.handleShowModal}
