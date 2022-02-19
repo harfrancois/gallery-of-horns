@@ -23,7 +23,7 @@ class HornedBeast extends React.Component {
 
     return (
       <>
-        <Card border="dark" style={{ width: '18rem'}}>
+        <Card className="h-100" border="dark" style={{ width: '18rem'}}>
           <Card.Body >
             <Card.Title><h2>{this.props.title}</h2></Card.Title>
             <Card.Img onClick={this.handleClick} src={this.props.imageUrl}
