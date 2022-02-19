@@ -5,8 +5,6 @@ import Main from './Main';
 import Footer from './Footer';
 import data from './data.json';
 import SelectedBeast from './SelectedBeast';
-import Form from './Forms';
-
 
 class App extends React.Component {
   constructor(props){
@@ -14,7 +12,7 @@ class App extends React.Component {
     this.state = {
       showModal: false,
       beast:{},
-      value:{}  
+      data 
     }
   }
   
@@ -29,12 +27,27 @@ class App extends React.Component {
       beast
     })
   }
-  handelSelect = (event) => {
-    console.log(event.target.value);
-    let select = event.target.value;
-      
-      
-  
+  handleSelect = (event) => {
+    let selected = event.target.value;
+
+    if (selected === 'one') {
+      let newBeasts = data.filter((data) => data.horns === 1);
+      this.setState({data: newBeasts});
+    }
+    else if (selected === 'two') {
+      let newBeasts = data.filter((data) => data.horns === 2);
+      this.setState({data: newBeasts});
+    }
+    else if (selected === 'three') {
+      let newBeasts = data.filter((data) => data.horns === 3);
+      this.setState({data: newBeasts});
+    }
+    else if (selected === 'more') {
+      let newBeasts = data.filter((data) => data.horns === 100);
+      this.setState({data: newBeasts});
+    } else {
+      this.setState({data: data});
+    }
   }
 
   render() {
@@ -47,11 +60,9 @@ class App extends React.Component {
       beast={this.state.beast}
       />
       <Header/>
-      <Form
-        handelSelect={this.handelSelect}
-      />
-      <Main 
-        data={data}
+      <Main
+         handleSelect={this.handleSelect}
+        data={this.state.data}
         handleShowModal={this.handleShowModal}
       />
       <Footer/>
